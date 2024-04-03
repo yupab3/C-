@@ -12,7 +12,7 @@ OBJS=		$(addprefix ./$(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 RM=			rm -rf
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
 
 all:	$(NAME)
 

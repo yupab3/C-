@@ -1,8 +1,8 @@
 CXX=		c++
 CXXFLAGS=	-Wall -Wextra -Werror -std=c++98
-NAME=		BetweenAdder
+NAME=		FunctionOverloading
 
-FILES=		BetweenAdder
+FILES=		FunctionOverloading
 SRCS=		$(addsuffix .cpp, $(FILES))
 OBJ_DIR=	objs
 OBJS=		$(addprefix ./$(OBJ_DIR)/, $(SRCS:.cpp=.o))
