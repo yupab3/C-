@@ -1,8 +1,8 @@
 CXX=		c++
 CXXFLAGS=	-Wall -Wextra -Werror -std=c++98
-NAME=		megaphone
+NAME=		MegaPhone
 
-FILES=		megaphone
+FILES=		MegaPhone
 SRCS=		$(addsuffix .cpp, $(FILES))
 OBJ_DIR=	objs
 OBJS=		$(addprefix ./$(OBJ_DIR)/, $(SRCS:.cpp=.o))
@@ -12,7 +12,7 @@ OBJS=		$(addprefix ./$(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 RM=			rm -rf
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
 
 all:	$(NAME)
 
