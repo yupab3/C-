@@ -7,8 +7,8 @@ SRCS=		$(addsuffix .cpp, $(FILES))
 OBJ_DIR=	objs
 OBJS=		$(addprefix ./$(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-# HD_FILES=			
-# HEADER=				$(addsuffix .hpp, $(HD_FILES))
+HD_FILES=	PhoneBook Contact
+HEADER=		$(addsuffix .hpp, $(HD_FILES))
 
 RM=			rm -rf
 
