@@ -1,8 +1,8 @@
 CXX=		c++
 CXXFLAGS=	-Wall -Wextra -Werror -std=c++98
-NAME=		MegaPhone
+NAME=		Account
 
-FILES=		MegaPhone
+FILES=		Account tests
 SRCS=		$(addsuffix .cpp, $(FILES))
 OBJ_DIR=	objs
 OBJS=		$(addprefix ./$(OBJ_DIR)/, $(SRCS:.cpp=.o))
