@@ -16,10 +16,10 @@ RM=			rm -rf
 
 all:	$(NAME)
 
-$(NAME): $(OBJS) #$(HEADER)
+$(NAME): $(OBJ_DIR) $(OBJS) #$(HEADER)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-objs/%.o:	%.cpp $(OBJ_DIR)
+objs/%.o:	%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ_DIR):

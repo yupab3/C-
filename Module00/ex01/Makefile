@@ -12,14 +12,14 @@ HEADER=		$(addsuffix .hpp, $(HD_FILES))
 
 RM=			rm -rf
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
 
 all:	$(NAME)
 
-$(NAME): $(OBJS) #$(HEADER)
+$(NAME): $(OBJ_DIR) $(OBJS) $(HEADER)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-objs/%.o:	%.cpp $(OBJ_DIR)
+objs/%.o:	%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ_DIR):

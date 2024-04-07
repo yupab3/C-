@@ -7,19 +7,19 @@ SRCS=		$(addsuffix .cpp, $(FILES))
 OBJ_DIR=	objs
 OBJS=		$(addprefix ./$(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-# HD_FILES=			
-# HEADER=				$(addsuffix .hpp, $(HD_FILES))
+HD_FILES=	Account
+HEADER=		$(addsuffix .hpp, $(HD_FILES))
 
 RM=			rm -rf
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
 
 all:	$(NAME)
 
-$(NAME): $(OBJS) #$(HEADER)
+$(NAME): $(OBJ_DIR) $(OBJS) $(HEADER)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-objs/%.o:	%.cpp $(OBJ_DIR)
+objs/%.o:	%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
