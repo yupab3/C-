@@ -11,7 +11,7 @@ PhoneBook::~PhoneBook(void){
 	return ;
 }
 
-int	PhoneBook::chk_book_empty(void)
+int	PhoneBook::chk_book_empty(void) const
 {
 	int	idx;
 
@@ -28,7 +28,7 @@ int	PhoneBook::chk_book_empty(void)
 	return (0);
 }
 
-int	PhoneBook::chk_index_wrong(std::string str)
+int	PhoneBook::chk_index_wrong(std::string str) const
 {
 	if (std::cin.eof() == 1)
 	{
