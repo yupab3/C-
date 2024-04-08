@@ -10,6 +10,9 @@ private:
 	int		idx;
 	Contact	book[8];
 
+	int	chk_index_wrong(std::string str);
+	int	chk_book_empty(void);
+	
 public:
 
 	PhoneBook(void);

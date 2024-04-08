@@ -13,6 +13,9 @@ private:
 	std::string	phone_number;
 	std::string	darkest_secret;
 
+	void	ignore_ctrl_d(void) const;
+	int		chk_str_wrong(std::string str) const;
+
 public:
 
 	Contact(void);
@@ -24,13 +27,17 @@ public:
 	int	set_phone(void);
 	int	set_secret(void);
 
-	std::string	get_first(void);
-	std::string	get_last(void);
-	std::string	get_nick(void);
-	std::string	get_phone(void);
-	std::string	get_secret(void);
+	const std::string	get_first(void) const;
+	const std::string	get_last(void) const;
+	const std::string	get_nick(void) const;
 
-	int	is_empty(void);
+	const std::string&	get_org_first(void) const;
+	const std::string&	get_org_last(void) const;
+	const std::string&	get_org_nick(void) const;
+	const std::string&	get_org_phone(void) const;
+	const std::string&	get_org_secret(void) const;
+
+	int	is_empty(void) const;
 
 };
 
