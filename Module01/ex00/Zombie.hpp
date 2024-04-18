@@ -5,12 +5,9 @@
 
 class	Zombie
 {
-	private:
-
+private:
 	std::string name;
-
-	public:
-
+public:
 	Zombie(const std::string& name_tag);
 	~Zombie();
 	void	announce(void) const;

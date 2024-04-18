@@ -32,5 +32,5 @@ Harl::Harl(void){
 	TrgtStr[0] = "DEBUG";
 	TrgtStr[1] = "INFO";
 	TrgtStr[2] = "WARNING";
-	TrgtStr[3] = "COMPLAIN";
+	TrgtStr[3] = "ERROR";
 }

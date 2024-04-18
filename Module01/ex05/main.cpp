@@ -6,6 +6,6 @@ int	main(void){
 	Harl.complain("DEBUG");
 	Harl.complain("INFO");
 	Harl.complain("WARNING");
-	Harl.complain("COMPLAIN");
+	Harl.complain("ERROR");
 	return 0;
 }
