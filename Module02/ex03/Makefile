@@ -2,13 +2,13 @@ CXX=		c++
 CXXFLAGS=	-Wall -Wextra -Werror -std=c++98
 NAME=		main
 
-FILES=		main
+FILES=		main Fixed Point bsp
 SRCS=		$(addsuffix .cpp, $(FILES))
 OBJ_DIR=	objs
 OBJS=		$(addprefix ./$(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-# HD_FILES=	
-# HEADER=		$(addsuffix .hpp, $(HD_FILES))
+HD_FILES=	Fixed Point
+HEADER=		$(addsuffix .hpp, $(HD_FILES))
 
 RM=			rm -rf
 
@@ -16,7 +16,7 @@ RM=			rm -rf
 
 all:	$(NAME)
 
-$(NAME): $(OBJ_DIR) $(OBJS) #$(HEADER)
+$(NAME): $(OBJ_DIR) $(OBJS) $(HEADER)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 objs/%.o:	%.cpp
