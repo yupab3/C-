@@ -10,5 +10,7 @@ std::cout << a++ << std::endl;
 std::cout << a << std::endl;
 std::cout << b << std::endl;
 std::cout << Fixed::max( a, b ) << std::endl;
+std::cout << (a + b).toFloat() << std::endl;
+std::cout << (b + a).toInt() << std::endl;
 return 0;
 }

@@ -5,9 +5,6 @@
 # include <cmath>
 
 class	Fixed{
-private:
-	int	Num;
-	static const int	PosPoint = 8;
 public:
 	Fixed(void);
 	Fixed(const int _Num);
@@ -20,12 +17,12 @@ public:
 	float toFloat( void ) const;
 	int toInt( void ) const;
 
-	bool	operator>(const Fixed &_Fixed);
-	bool	operator<(const Fixed &_Fixed);
-	bool	operator>=(const Fixed &_Fixed);
-	bool	operator<=(const Fixed &_Fixed);
-	bool	operator==(const Fixed &_Fixed);
-	bool	operator!=(const Fixed &_Fixed);
+	bool	operator>(const Fixed &_Fixed) const;
+	bool	operator<(const Fixed &_Fixed) const;
+	bool	operator>=(const Fixed &_Fixed) const;
+	bool	operator<=(const Fixed &_Fixed) const;
+	bool	operator==(const Fixed &_Fixed) const;
+	bool	operator!=(const Fixed &_Fixed) const;
 	Fixed	operator+(const Fixed &_Fixed) const;
 	Fixed	operator-(const Fixed &_Fixed) const;
 	Fixed	operator*(const Fixed &_Fixed) const;
@@ -40,6 +37,9 @@ public:
 	static const Fixed&	min(const Fixed &_Fixed1, const Fixed &_Fixed2);
 	static Fixed&	max(Fixed &_Fixed1, Fixed &_Fixed2);
 	static const Fixed&	max(const Fixed &_Fixed1, const Fixed &_Fixed2);
+private:
+	int	Num;
+	static const int	PosPoint = 8;
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& _Fixed);

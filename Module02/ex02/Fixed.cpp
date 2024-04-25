@@ -2,7 +2,7 @@
 
 std::ostream& operator<<(std::ostream& out, const Fixed& _Fixed){
 	int	Num = _Fixed.getRawBits();
-	if (Num % 256 > 0) out << Num / 256.0;
+	if (Num % 256 != 0) out << Num / 256.0;
 	else out << (Num >> 8);
 	return out;
 }
@@ -17,19 +17,29 @@ Fixed::Fixed(const float _float){
 	int	essence;
 	int	decimal = 0;
 	float	trgt;
-	essence = (int)roundf(_float * 256.0f);
 	trgt = roundf(_float * 256.0f) / 256;
 	essence = (int)_float;
 	trgt = trgt - essence;
+	std::cout << trgt << ", " << essence << '\n';
 	for (int idx = 1; idx <= 8; idx++){
 		trgt = trgt * 2;
-		if (trgt >= 1){
+		if (trgt >= 1 || trgt <= -1){
 			decimal += 256 / pow(2, idx);
-			trgt = trgt - 1;
+			if (trgt >= 1){
+				trgt = trgt - 1;
+			}
+			else{
+				trgt = trgt + 1;
+			}
 		}
 	}
 	essence = essence << 8;
-	Num = essence + decimal;
+	if (essence < 0){
+		Num = essence - decimal;
+	}
+	else{
+		Num = essence + decimal;
+	}
 }
 
 Fixed::~Fixed(void){}
@@ -55,43 +65,43 @@ Fixed& Fixed::operator=(const Fixed &_Fixed){
 	return *this;
 }
 
-bool Fixed::operator>(const Fixed &_Fixed){
+bool Fixed::operator>(const Fixed &_Fixed) const{
 	if (Num > _Fixed.Num) return true;
 	else return false;
 }
 
-bool Fixed::operator<(const Fixed &_Fixed){
+bool Fixed::operator<(const Fixed &_Fixed) const{
 	if (Num < _Fixed.Num) return true;
 	else return false;
 }
 
-bool Fixed::operator>=(const Fixed &_Fixed){
+bool Fixed::operator>=(const Fixed &_Fixed) const{
 	if (Num >= _Fixed.Num) return true;
 	else return false;
 }
 
-bool Fixed::operator<=(const Fixed &_Fixed){
+bool Fixed::operator<=(const Fixed &_Fixed) const{
 	if (Num <= _Fixed.Num) return true;
 	else return false;
 }
 
-bool Fixed::operator==(const Fixed &_Fixed){
+bool Fixed::operator==(const Fixed &_Fixed) const{
 	if (this->Num == _Fixed.Num) return true;
 	else return false;
 }
 
-bool Fixed::operator!=(const Fixed &_Fixed){
+bool Fixed::operator!=(const Fixed &_Fixed) const{
 	if (this->Num != _Fixed.Num) return true;
 	else return false;
 }
 
 Fixed	Fixed::operator+(const Fixed &_Fixed) const{
-	Fixed	tmp(Num + _Fixed.Num);
+	Fixed	tmp(this->toFloat() + _Fixed.toFloat());
 	return tmp;
 }
 
 Fixed	Fixed::operator-(const Fixed &_Fixed) const{
-	Fixed	tmp(Num - _Fixed.Num);
+	Fixed	tmp(this->toFloat() - _Fixed.toFloat());
 	return tmp;
 }
 
