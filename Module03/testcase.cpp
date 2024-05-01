@@ -3,6 +3,7 @@
 class testA{
 public:
 	int num_A;
+	// virtual ~
 	testA(void);
 };
 

@@ -4,6 +4,12 @@
 # include <iostream>
 
 class	ClapTrap{
+protected:
+	std::string	Name;
+	int			HitPoint;
+	int			EnergyPoint;
+	int			AttackDamage;
+
 public:
 	ClapTrap(const std::string &_Name);
 	ClapTrap(const ClapTrap &_ClapTrap);
@@ -13,11 +19,8 @@ public:
 	virtual void	attack(const std::string &target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-protected:
-	std::string	Name;
-	int			HitPoint;
-	int			EnergyPoint;
-	int			AttackDamage;
+	const int&	getAttackDamage(void) const;
+
 private:
 	ClapTrap(void);
 };
