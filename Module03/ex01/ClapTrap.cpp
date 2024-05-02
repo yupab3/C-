@@ -40,15 +40,9 @@ void	ClapTrap::attack(const std::string &target){
 }
 
 void	ClapTrap::takeDamage(unsigned int amount){
-	if (EnergyPoint > 0 && HitPoint > 0){
-		std::cout << "ClapTrap \"" << Name << "\"은(는) " << amount << "만큼의 피해를 입었다!!\n";
-		HitPoint -= amount;
-		std::cout << "ClapTrap \"" << Name << "\"의 체력: " << HitPoint << ", 에너지: " << EnergyPoint << ", 공격력: " << AttackDamage << '\n';
-	}
-	else{
-		std::cout << "ClapTrap \"" << Name << "\"은(는) 아무것도 할 수 없다..\n";
-		std::cout << "ClapTrap \"" << Name << "\"의 체력: " << HitPoint << ", 에너지: " << EnergyPoint << ", 공격력: " << AttackDamage << '\n';
-	}
+	std::cout << "ClapTrap \"" << Name << "\"은(는) " << amount << "만큼의 피해를 입었다!!\n";
+	HitPoint -= amount;
+	std::cout << "ClapTrap \"" << Name << "\"의 체력: " << HitPoint << ", 에너지: " << EnergyPoint << ", 공격력: " << AttackDamage << '\n';
 }
 
 void	ClapTrap::beRepaired(unsigned int amount){
