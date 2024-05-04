@@ -3,6 +3,10 @@
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 
+void	asd(void){
+	system("leaks main");
+}
+
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
@@ -20,6 +24,6 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
-	// while (1);
+	atexit(asd);
 	return 0;
 }

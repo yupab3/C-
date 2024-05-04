@@ -51,6 +51,7 @@ void MateriaSource::learnMateria(AMateria* m){
 		slot[i] = m->clone();
 	}
 	collectGarbage(slot[i]);
+	delete m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type){
@@ -61,7 +62,9 @@ AMateria* MateriaSource::createMateria(std::string const & type){
 		}
 	}
 	if (i < 4){
-		return slot[i]->clone();
+		AMateria	*tmp = slot[i]->clone();
+		collectGarbage(tmp);
+		return tmp;
 	}
 	return 0;
 }
