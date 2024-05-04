@@ -47,5 +47,6 @@ int	main(void){
 	std::cout << '\n';
 
 	delete wc2;
+	// while (1);
 	return 0;
 }
