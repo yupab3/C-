@@ -57,7 +57,7 @@ void MateriaSource::learnMateria(AMateria* m){ // new Ice()
 AMateria* MateriaSource::createMateria(std::string const & type){
 	int i;
 	for (i = 0; i < 4; i++){
-		if (slot[i]->getType() == type){
+		if (slot[i] != NULL && slot[i]->getType() == type){
 			break;
 		}
 	}
