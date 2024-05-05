@@ -40,7 +40,7 @@ MateriaSource::~MateriaSource(){
 	std::cout << "MateriaSource 소멸자 호출~\n";
 }
 
-void MateriaSource::learnMateria(AMateria* m){
+void MateriaSource::learnMateria(AMateria* m){ // new Ice()
 	int i;
 	for (i = 0; i < 4; i++){
 		if (slot[i] == NULL){
@@ -49,8 +49,8 @@ void MateriaSource::learnMateria(AMateria* m){
 	}
 	if (i < 4){
 		slot[i] = m->clone();
+		collectGarbage(slot[i]);
 	}
-	collectGarbage(slot[i]);
 	delete m;
 }
 

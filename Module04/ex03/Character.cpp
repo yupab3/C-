@@ -60,8 +60,8 @@ void Character::equip(AMateria* m){
 	}
 	if (i < 4){
 		slot[i] = m->clone();
+		collectGarbage(slot[i]);
 	}
-	collectGarbage(slot[i]);
 }
 
 void Character::unequip(int idx){
