@@ -17,10 +17,10 @@ Fixed::Fixed(const float _float){
 	int	essence;
 	int	decimal = 0;
 	float	trgt;
+
 	trgt = roundf(_float * 256.0f) / 256;
 	essence = (int)_float;
 	trgt = trgt - essence;
-	std::cout << trgt << ", " << essence << '\n';
 	for (int idx = 1; idx <= 8; idx++){
 		trgt = trgt * 2;
 		if (trgt >= 1 || trgt <= -1){
