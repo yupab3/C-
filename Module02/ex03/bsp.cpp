@@ -6,7 +6,7 @@ static Point	get_vector(Point const start, Point const end){
 }
 
 bool bsp(Point const a, Point const b, Point const c, Point const point){
-	int outer_a, outer_b, outer_c;
+	float outer_a, outer_b, outer_c;
 	Point	ab = get_vector(a, b);
 	Point	bc = get_vector(b, c);
 	Point	ca = get_vector(c, a);
