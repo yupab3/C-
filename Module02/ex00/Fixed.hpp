@@ -6,7 +6,6 @@
 class	Fixed{
 public:
 	Fixed(void);
-	Fixed(const int _Num);
 	Fixed(const Fixed &_Fixed);
 	Fixed&	operator=(const Fixed &_Fixed);
 	~Fixed(void);

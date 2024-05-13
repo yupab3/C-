@@ -1,0 +1,19 @@
+#include "Bureaucrat.hpp"
+
+int	main(void){
+	try{
+		Bureaucrat	human("sungyoon", 1);
+		Bureaucrat	human1("dongyeuk", 0);
+		Bureaucrat	human2("jaejilee", 151);
+	}
+	catch(std::exception &e){
+		std::cout << e.what();
+	}
+	// catch(Bureaucrat::GradeTooHighException _e){
+	// 	std::cout << _e.what() << '\n';
+	// }
+	// catch(Bureaucrat::GradeTooLowException _e){
+	// 	std::cout << _e.what() << '\n';
+	// }
+	return 1;
+}
