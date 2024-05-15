@@ -4,9 +4,9 @@ int	main(void){
 	try{
 		Bureaucrat	human("sungyoon", 1);
 		std::cout << human;
-		Bureaucrat	human1("dongyeuk", 0);
+		Bureaucrat	human1("dongyeuk", 3);
 		std::cout << human1;
-		Bureaucrat	human2("jaejilee", 151);
+		Bureaucrat	human2("jaejilee", 149);
 		std::cout << human2;
 	}
 	catch(std::exception &e){
