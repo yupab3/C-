@@ -2,6 +2,9 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat{
 public:
@@ -11,28 +14,13 @@ public:
 	private:
 		GradeTooHighException(void);
 	};
-	// class GradeTooHighException{
-	// public:
-	// 	GradeTooHighException(void);
-	// 	GradeTooHighException(const std::string& _msg);
-	// 	const char*	what(void);
-	// private:
-	// 	const std::string	msg;
-	// };
+
 	class GradeTooLowException: public std::logic_error{
 	public:
 		GradeTooLowException(const std::string& _msg);
 	private:
 		GradeTooLowException(void);
 	};
-	// class GradeTooLowException{
-	// public:
-	// 	GradeTooLowException(void);
-	// 	GradeTooLowException(const std::string& _msg);
-	// 	const char*	what(void);
-	// private:
-	// 	const std::string	msg;
-	// };
 
 public:
 	Bureaucrat(const std::string &_name, int _grade);
@@ -43,6 +31,7 @@ public:
 	const int& getGrade();
 	const std::string& getName() const;
 	const int& getGrade() const;
+	void	signForm(Form& _form);
 	void	upGrade(void);
 	void	downGrade(void);
 private:

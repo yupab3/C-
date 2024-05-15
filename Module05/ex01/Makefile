@@ -2,12 +2,12 @@ CXX=		c++
 CXXFLAGS=	-Wall -Wextra -Werror -std=c++98
 NAME=		main
 
-FILES=		main AMateria Character Cure Garbage Ice MateriaSource 
+FILES=		main Bureaucrat Form
 SRCS=		$(addsuffix .cpp, $(FILES))
 OBJ_DIR=	objs
 OBJS=		$(addprefix ./$(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-HD_FILES=	AMateria Character Cure Garbage Ice MateriaSource IMateriaSource ICharacter
+HD_FILES=	Bureaucrat Form
 HEADER=		$(addsuffix .hpp, $(HD_FILES))
 
 RM=			rm -rf

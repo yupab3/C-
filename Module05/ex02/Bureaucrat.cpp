@@ -13,7 +13,7 @@ Bureaucrat::Bureaucrat(const std::string &_name, int _grade): name(_name), grade
 	}
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& _copy): name(_copy.name), grade(_copy.grade){}
+Bureaucrat::Bureaucrat(const Bureaucrat& _bureaucrat): name(_bureaucrat.name), grade(_bureaucrat.grade){}
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& _bureaucrat){
 	std::cout << _bureaucrat << "어케 호출함?\n";
@@ -24,27 +24,7 @@ Bureaucrat::~Bureaucrat(void){}
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string& _msg): std::logic_error(_msg){}
 
-// Bureaucrat::GradeTooHighException::GradeTooHighException(void): msg("Toohigh default message"){
-// 	std::cout << "GradeTooHighException 생성자 호출\n";
-// }
-
-// Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string& _msg): msg(_msg){}
-
-// const char*	Bureaucrat::GradeTooHighException::what(void){
-// 	return msg.c_str();
-// }
-
 Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string& _msg): std::logic_error(_msg){}
-
-// Bureaucrat::GradeTooLowException::GradeTooLowException(void): msg("Toolow default message"){
-// 	// std::cout << "GradeTooLowException 생성자 호출\n";
-// }
-
-// Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string& _msg): msg(_msg){}
-
-// const char*	Bureaucrat::GradeTooLowException::what(void){
-// 	return msg.c_str();
-// }
 
 const std::string& Bureaucrat::getName(){
 	return name;
@@ -60,6 +40,26 @@ const std::string& Bureaucrat::getName() const{
 
 const int& Bureaucrat::getGrade() const{
 	return grade;
+}
+
+void	Bureaucrat::signForm(AForm& _aform){
+	try{
+		_aform.beSigned(*this);
+		std::cout << name << " signed " << _aform.getName() << '\n';
+	}
+	catch(std::exception &e){
+		std::cout << name << " couldn’t sign " << _aform.getName() << " because " << e.what();
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const & form){
+	try{
+		form.execute(*this);
+		std::cout << name << " executed " << form.getName() << '\n';
+	}
+	catch(std::exception &e){
+		std::cout << name << " couldn’t execute " << form.getName() << " because " << e.what();
+	}
 }
 
 void	Bureaucrat::upGrade(void){

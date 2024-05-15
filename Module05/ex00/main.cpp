@@ -3,8 +3,11 @@
 int	main(void){
 	try{
 		Bureaucrat	human("sungyoon", 1);
+		std::cout << human;
 		Bureaucrat	human1("dongyeuk", 0);
+		std::cout << human1;
 		Bureaucrat	human2("jaejilee", 151);
+		std::cout << human2;
 	}
 	catch(std::exception &e){
 		std::cout << e.what();
@@ -15,5 +18,5 @@ int	main(void){
 	// catch(Bureaucrat::GradeTooLowException _e){
 	// 	std::cout << _e.what() << '\n';
 	// }
-	return 1;
+	return 0;
 }

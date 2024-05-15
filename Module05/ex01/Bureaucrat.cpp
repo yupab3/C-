@@ -24,27 +24,7 @@ Bureaucrat::~Bureaucrat(void){}
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string& _msg): std::logic_error(_msg){}
 
-// Bureaucrat::GradeTooHighException::GradeTooHighException(void): msg("Toohigh default message"){
-// 	std::cout << "GradeTooHighException 생성자 호출\n";
-// }
-
-// Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string& _msg): msg(_msg){}
-
-// const char*	Bureaucrat::GradeTooHighException::what(void){
-// 	return msg.c_str();
-// }
-
 Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string& _msg): std::logic_error(_msg){}
-
-// Bureaucrat::GradeTooLowException::GradeTooLowException(void): msg("Toolow default message"){
-// 	// std::cout << "GradeTooLowException 생성자 호출\n";
-// }
-
-// Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string& _msg): msg(_msg){}
-
-// const char*	Bureaucrat::GradeTooLowException::what(void){
-// 	return msg.c_str();
-// }
 
 const std::string& Bureaucrat::getName(){
 	return name;
@@ -86,6 +66,16 @@ void	Bureaucrat::downGrade(void){
 		throw Bureaucrat::GradeTooLowException("Too low - downGrade\n");
 	}
 	++grade;
+}
+
+void	Bureaucrat::signForm(Form& _form){
+	try{
+		_form.beSigned(*this);
+		std::cout << name << " signed " << _form.getName() << '\n';
+	}
+	catch(std::exception &e){
+		std::cout << name << " couldn’t sign " << _form.getName() << " because " << e.what();
+	}
 }
 
 std::ostream&	operator<<(std::ostream& _out, const Bureaucrat& _bureaucrat){
