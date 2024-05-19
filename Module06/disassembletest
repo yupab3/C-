@@ -1,0 +1,84 @@
+0x000055555555523f <+0>:     endbr64 
+   0x0000555555555243 <+4>:     push   %rbp
+   0x0000555555555244 <+5>:     mov    %rsp,%rbp
+   0x0000555555555247 <+8>:     sub    $0x50,%rsp
+   0x000055555555524b <+12>:    mov    %fs:0x28,%rax
+   0x0000555555555254 <+21>:    mov    %rax,-0x8(%rbp)
+   0x0000555555555258 <+25>:    xor    %eax,%eax
+   0x000055555555525a <+27>:    movl   $0x3,-0x44(%rbp)
+   0x0000555555555261 <+34>:    lea    -0x44(%rbp),%rax
+   0x0000555555555265 <+38>:    mov    %rax,-0x38(%rbp)
+   0x0000555555555269 <+42>:    lea    -0x44(%rbp),%rax
+   0x000055555555526d <+46>:    mov    %rax,-0x30(%rbp)
+   0x0000555555555271 <+50>:    mov    -0x30(%rbp),%rax
+   0x0000555555555275 <+54>:    movl   $0x4,(%rax)
+   0x000055555555527b <+60>:    movl   $0x4,-0x44(%rbp)
+   0x0000555555555282 <+67>:    lea    0xd7c(%rip),%rsi        # 0x555555556005
+   0x0000555555555289 <+74>:    lea    0x2db0(%rip),%rdi        # 0x555555558040 <_ZSt4cout@@GLIBCXX_3.4>
+   0x0000555555555290 <+81>:    callq  0x5555555550d0 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+   0x0000555555555295 <+86>:    mov    %rax,%rdx
+   0x0000555555555298 <+89>:    mov    -0x44(%rbp),%eax
+   0x000055555555529b <+92>:    mov    %eax,%esi
+   0x000055555555529d <+94>:    mov    %rdx,%rdi
+   0x00005555555552a0 <+97>:    callq  0x555555555110 <_ZNSolsEi@plt>
+   0x00005555555552a5 <+102>:   mov    $0xa,%esi
+   0x00005555555552aa <+107>:   mov    %rax,%rdi
+   0x00005555555552ad <+110>:   callq  0x5555555550f0 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c@plt>
+   0x00005555555552b2 <+115>:   lea    -0x40(%rbp),%rax
+   0x00005555555552b6 <+119>:   mov    %rax,%rdi
+   0x00005555555552b9 <+122>:   callq  0x555555555416 <type::type()>
+   0x00005555555552be <+127>:   lea    -0x40(%rbp),%rax
+   0x00005555555552c2 <+131>:   mov    $0x4,%esi
+   0x00005555555552c7 <+136>:   mov    %rax,%rdi
+   0x00005555555552ca <+139>:   callq  0x555555555430 <type::f(int) const>
+   0x00005555555552cf <+144>:   lea    0xd34(%rip),%rsi        # 0x55555555600a
+   0x00005555555552d6 <+151>:   lea    0x2d63(%rip),%rdi        # 0x555555558040 <_ZSt4cout@@GLIBCXX_3.4>
+   0x00005555555552dd <+158>:   callq  0x5555555550d0 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+   0x00005555555552e2 <+163>:   mov    %rax,%rdx
+   0x00005555555552e5 <+166>:   mov    -0x40(%rbp),%eax
+   0x00005555555552e8 <+169>:   mov    %eax,%esi
+   0x00005555555552ea <+171>:   mov    %rdx,%rdi
+   0x00005555555552ed <+174>:   callq  0x555555555110 <_ZNSolsEi@plt>
+   0x00005555555552f2 <+179>:   mov    $0xa,%esi
+   0x00005555555552f7 <+184>:   mov    %rax,%rdi
+   0x00005555555552fa <+187>:   callq  0x5555555550f0 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c@plt>
+   0x00005555555552ff <+192>:   movl   $0x3,-0x3c(%rbp)
+   0x0000555555555306 <+199>:   lea    -0x3c(%rbp),%rax
+   0x000055555555530a <+203>:   mov    %rax,%rsi
+   0x000055555555530d <+206>:   lea    0x2d2c(%rip),%rdi        # 0x555555558040 <_ZSt4cout@@GLIBCXX_3.4>
+   0x0000555555555314 <+213>:   callq  0x5555555550b0 <_ZNSolsEPKv@plt>
+   0x0000555555555319 <+218>:   mov    $0xa,%esi
+   0x000055555555531e <+223>:   mov    %rax,%rdi
+   0x0000555555555321 <+226>:   callq  0x5555555550f0 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c@plt>
+   0x0000555555555326 <+231>:   lea    -0x3c(%rbp),%rax
+   0x000055555555532a <+235>:   mov    %rax,%rdi
+   0x000055555555532d <+238>:   callq  0x555555555209 <tmpf(int const&)>
+   0x0000555555555332 <+243>:   mov    %rax,-0x28(%rbp)
+   0x0000555555555336 <+247>:   mov    -0x28(%rbp),%rax
+   0x000055555555533a <+251>:   movl   $0x4,(%rax)
+   0x0000555555555340 <+257>:   mov    -0x28(%rbp),%rax
+   0x0000555555555344 <+261>:   mov    %rax,%rsi
+   0x0000555555555347 <+264>:   lea    0x2cf2(%rip),%rdi        # 0x555555558040 <_ZSt4cout@@GLIBCXX_3.4>
+   0x000055555555534e <+271>:   callq  0x5555555550b0 <_ZNSolsEPKv@plt>
+   0x0000555555555353 <+276>:   mov    $0xa,%esi
+   0x0000555555555358 <+281>:   mov    %rax,%rdi
+   0x000055555555535b <+284>:   callq  0x5555555550f0 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c@plt>
+   0x0000555555555360 <+289>:   mov    -0x28(%rbp),%rax
+   0x0000555555555364 <+293>:   mov    (%rax),%eax
+   0x0000555555555366 <+295>:   mov    %eax,%esi
+   0x0000555555555368 <+297>:   lea    0x2cd1(%rip),%rdi        # 0x555555558040 <_ZSt4cout@@GLIBCXX_3.4>
+   0x000055555555536f <+304>:   callq  0x555555555110 <_ZNSolsEi@plt>
+   0x0000555555555374 <+309>:   mov    $0x3,%esi
+   0x0000555555555379 <+314>:   mov    %rax,%rdi
+   0x000055555555537c <+317>:   callq  0x555555555110 <_ZNSolsEi@plt>
+   0x0000555555555381 <+322>:   lea    0xa8(%rip),%rax        # 0x555555555430 <type::f(int) const>
+--Type <RET> for more, q to quit, c to continue without paging--RET
+   0x0000555555555388 <+329>:   mov    %rax,-0x20(%rbp)
+   0x000055555555538c <+333>:   movq   $0x0,-0x18(%rbp)
+   0x0000555555555394 <+341>:   mov    $0x0,%eax
+   0x0000555555555399 <+346>:   mov    -0x8(%rbp),%rcx
+   0x000055555555539d <+350>:   xor    %fs:0x28,%rcx
+   0x00005555555553a6 <+359>:   je     0x5555555553ad <main()+366>
+   0x00005555555553a8 <+361>:   callq  0x5555555550e0 <__stack_chk_fail@plt>
+   0x00005555555553ad <+366>:   leaveq 
+   0x00005555555553ae <+367>:   retq

@@ -1,5 +1,13 @@
 #include <iostream>
 
+int main(void){
+    const int& tmp = 10;
+    const int& e = const_cast<int&>(tmp)++;
+    std::cout << tmp << ", " << e;
+    return 0;
+}
+
+/*
 struct type
 {
     int i;
@@ -42,6 +50,7 @@ int main()
     // const_cast<void(type::*)(int)>(pmf);   // compile error: const_cast does
                                               // not work on function pointers
 }
+*/
 
 /*
 static int aa = 10;
