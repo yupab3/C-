@@ -1,11 +1,114 @@
 #include <iostream>
 
+class   SoSimple{
+public:
+    int x;
+    virtual void    ShowSimpleInfo(){
+        std::cout << "SoSimple Base Class" << std::endl;
+    }
+};
+
+class   SoComplex : virtual public SoSimple{
+public:
+    void    ShowSimpleInfo(){
+        std::cout << "SoComplex Base Class" << std::endl;
+    }
+};
+
+int main(void){
+    SoComplex C;
+    SoSimple* S = &C;
+    std::cout << &C << " " << S;
+    // SoSimple* simPtr = new SoComplex;
+    // SoComplex* comPtr = dynamic_cast<SoComplex*>(simPtr);
+    // comPtr->ShowSimpleInfo();
+    // simPtr->ShowSimpleInfo();
+    return 0;
+}
+
+/*
+using namespace std;
+
+class CMyData
+{
+public:
+	CMyData(int x, int y) : nData(x), yData(y)
+	{
+		cout << "변환 생성자 호출" << endl;
+	}
+
+	int GetData() const
+	{
+		return nData;
+	}
+
+private:
+	int nData;
+    int yData;
+};
+
+void TestFunc(const CMyData &rhs) // 분명 TestFunc 함수는 매개값으로 CMyData 객체의 참조를 받는다.
+{
+	cout << "TestFunc(): " << rhs.GetData() << endl;
+}
+
+int main()
+{
+	CMyData a(100, 100);
+	TestFunc(a); // 일반적인 함수 호출 경우
+
+	TestFunc(1000, 1000); // 인자값으로 1000을 넣었는데도 컴파일 오류가 발생하지 않는다.
+	return 0;
+}
+*/
+
+/*
+class Base
+{
+public:
+    virtual ~Base();
+};
+
+Base::~Base(){
+    return ;
+}
+
+class Derived : public Base
+{
+public:
+    virtual ~Derived();
+};
+
+Derived::~Derived(){
+    return ;
+}
+
+int main()
+{
+    // Base* b = nullptr;
+    // Derived* d = new Derived();
+    // b = d; // Don't need a cast to go up the inheritance hierarchy
+    // d = static_cast<Derived*>(b); // Need a cast to go down the hierarchy
+
+    Base base;
+    Derived derived;
+    Base& br = derived;
+    Derived& dr = static_cast<Derived&>(br);
+
+    Base* b = new Base();
+    Derived* d = static_cast<Derived*>(b);
+}
+*/
+
+/*
 int main(void){
     const int& tmp = 10;
     const int& e = const_cast<int&>(tmp)++;
     std::cout << tmp << ", " << e;
+    "test" = 1;
     return 0;
 }
+*/
 
 /*
 struct type
