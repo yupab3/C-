@@ -3,9 +3,11 @@
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 
+/*
 void	asd(void){
 	system("leaks main");
 }
+*/
 
 int main()
 {
@@ -38,6 +40,6 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
-	atexit(asd);
+	// atexit(asd);
 	return 0;
 }

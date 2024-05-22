@@ -18,7 +18,6 @@ AMateria&	AMateria::operator=(const AMateria &_AMateria){
 	if (this == &_AMateria){
 		return *this;
 	}
-	type = _AMateria.type;
 	return *this;
 }
 
