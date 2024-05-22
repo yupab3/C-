@@ -4,7 +4,7 @@
 #include "PresidentialPardonForm.hpp"
 
 int	main(void){
-	std::srand(std::time(NULL));
+	std::srand(time(NULL));
 	try{
 		Bureaucrat	human("sungyoon", 1);
 		std::cout << human;
