@@ -1,4 +1,5 @@
 #include "ScalarConverter.hpp"
+#include <cmath>
 #include <limits>
 
 static int	isNegativeInf(const std::string& _trgt)
