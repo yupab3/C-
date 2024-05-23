@@ -140,7 +140,8 @@ static void	printVariables(const std::string& _trgt, const char& _c, const int& 
 			std::cout << "int : \"" << _i << "\"\n";
 		}
 		while ((_trgt.find('.') != std::string::npos && _trgt.find('.') - zeroCount > 1 && _trgt.find('0', zeroCount) == zeroCount) ||
-		(_trgt.find('.') == std::string::npos && _trgt.size() - zeroCount > 1 && _trgt.find('0', zeroCount) == zeroCount))
+		(_trgt.find('.') == std::string::npos && _trgt.size() - zeroCount > 1 && _trgt.find('0', zeroCount) == zeroCount) ||
+		(_trgt.find('-') != std::string::npos && zeroCount == 0))
 		{
 			zeroCount++;
 		}
@@ -150,37 +151,15 @@ static void	printVariables(const std::string& _trgt, const char& _c, const int& 
 		}
 		else if (_trgt.find('.') == std::string::npos)
 		{
-		
-			if (_d < 0)
-			{
-				std::cout.precision(_trgt.size() - zeroCount);
-			}
-			else
-			{
-				std::cout.precision(_trgt.size() + 1 - zeroCount);
-			}
+			std::cout.precision(_trgt.size() + 1 - zeroCount);
 		}
 		else if (-1.0 < _d && _d < 1.0 && _d != 0)
 		{
-			if (_d < 0)
-			{
-				std::cout.precision(_trgt.find('.') - 1 - zeroCount);
-			}
-			else
-			{
-				std::cout.precision(_trgt.find('.') - zeroCount);
-			}
+			std::cout.precision(_trgt.find('.') - zeroCount);
 		}
 		else
 		{
-			if (_d < 0)
-			{
-				std::cout.precision(_trgt.find('.') - zeroCount);
-			}
-			else
-			{
-				std::cout.precision(_trgt.find('.') + 1 - zeroCount);
-			}
+			std::cout.precision(_trgt.find('.') + 1 - zeroCount);
 		}
 		std::cout << "float : \"" << std::showpoint << _f << "f\"\n";
 		std::cout << "double : \"" << std::showpoint << _d << "\"\n";
