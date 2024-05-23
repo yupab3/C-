@@ -7,7 +7,7 @@ MateriaSource::MateriaSource(){
 	}
 }
 
-MateriaSource::MateriaSource(const MateriaSource &_MateriaSource){
+MateriaSource::MateriaSource(const MateriaSource &_MateriaSource): Garbage(){
 	std::cout << "MateriaSource 복사 생성자 호출~\n";
 	for (int i = 0; i < 4; i++){
 		if (_MateriaSource.slot[i] != NULL){

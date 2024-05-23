@@ -2,9 +2,11 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
+/*
 void	asd(void){
 	system("leaks main");
 }
+*/
 
 int	main(void){
 	Animal *a1 = new Animal();
@@ -51,6 +53,6 @@ int	main(void){
 	std::cout << '\n';
 
 	delete wc2;
-	atexit(asd);
+	// atexit(asd);
 	return 0;
 }

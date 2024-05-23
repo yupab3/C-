@@ -1,13 +1,15 @@
 #include "Bureaucrat.hpp"
 #include "Intern.hpp"
 
+/*
 void	asd(void){
 	system("leaks main");
 }
+*/
 
 int	main(void){
-	std::srand(std::time(NULL));
-	atexit(asd);
+	std::srand(time(NULL));
+	// atexit(asd);
 	Intern	someone;
 	try{
 		Bureaucrat	human("sungyoon", 1);

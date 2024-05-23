@@ -14,7 +14,7 @@ Character::Character(const std::string &_name) :name(_name){
 	}
 }
 
-Character::Character(const Character &_Character){
+Character::Character(const Character &_Character): Garbage(){
 	std::cout << "Character 복사 생성자 호출~\n";
 	for (int i = 0; i < 4; i++){
 		if (_Character.slot[i] != NULL){
