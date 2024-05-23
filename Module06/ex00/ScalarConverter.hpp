@@ -5,7 +5,7 @@
 
 class ScalarConverter{
 public:
-	static convert(std::string _trgt);
+	static void convert(const std::string& _trgt);
 };
 
 #endif

@@ -1,13 +1,13 @@
 CXX=		c++
-CXXFLAGS=	-Wall -Wextra -Werror -std=c++98
-NAME=		main
+CXXFLAGS=	-Wall -Wextra -Werror -std=c++98 -g
+NAME=		convert
 
-FILES=		main Bureaucrat
+FILES=		main ScalarConverter
 SRCS=		$(addsuffix .cpp, $(FILES))
 OBJ_DIR=	objs
 OBJS=		$(addprefix ./$(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-HD_FILES=	Bureaucrat
+HD_FILES=	ScalarConverter
 HEADER=		$(addsuffix .hpp, $(HD_FILES))
 
 RM=			rm -rf
