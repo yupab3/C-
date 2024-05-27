@@ -1,10 +1,10 @@
 #include <iostream>
 #include "Array.hpp"
 
-void	asd(void)
-{
-	system("leaks main");
-}
+// void	asd(void)
+// {
+// 	system("leaks main");
+// }
 
 class	Point
 {
@@ -31,5 +31,5 @@ int	main()
 	intArrayPtrArray[0] = &intArray1;
 	std::cout << PointArray[0].x << " " << PointArray[0].y << '\n';
 	std::cout << (*intArrayPtrArray[0])[1] << '\n' << unsignedintArray[1];
-	atexit(asd);
+	// atexit(asd);
 }
