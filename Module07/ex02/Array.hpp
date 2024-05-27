@@ -43,12 +43,8 @@ Array<T>& Array<T>::operator=(const Array<T>& _copy){
 }
 
 template <typename T>
-Array<T>::Array(const Array<T>& _copy){
-	if (this != &_copy){
-		return *this;
-	}
+Array<T>::Array(const Array<T>& _copy): elements_(NULL), size_(0){
 	*this = _copy;
-	return *this;
 }
 
 template <typename T>
