@@ -1,9 +1,11 @@
+#include <iostream>
+#include <typeinfo>
 #include "iter.hpp"
 
 class A
 {
 public:
-    void funcA(const double a);
+    static void funcA(const double a);
 };
 
 void A::funcA(const double a)
