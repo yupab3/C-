@@ -8,21 +8,15 @@ public:
 
 class B : virtual public A{
 public:
-    int y[10000];
-    void    printSomey();
+    int y;
 };
-
-B&    tempfunc(B& _B){
-    // ...
-}
 
 int main(void)
 {
-    int a = 1;
-    int &b = a;
-    
-    A*  a1 = static_cast<A*>(b1);
-    std::cout << a1 << " " << b1;
+    B   b1;
+    // A&  a1 = static_cast<A&>(b1);
+    A&  a1 = reinterpret_cast<A&>(b1);
+    std::cout << &a1 << " " << &b1;
     return 0;
 }
 
