@@ -10,7 +10,8 @@ public:
 	Array& operator=(const Array& n);
 	Array(const Array<T>& n);
 	~Array();
-	T& operator[](unsigned int n) const;
+	T& operator[](unsigned int n);
+	const T& operator[](unsigned int n) const;
 
 	unsigned int	size() const;
 private:
@@ -55,7 +56,12 @@ Array<T>::~Array(){
 }
 
 template <typename T>
-T& Array<T>::operator[](unsigned int n) const{
+T& Array<T>::operator[](unsigned int n){
+	return elements_[n];
+}
+
+template <typename T>
+const T& Array<T>::operator[](unsigned int n) const{
 	return elements_[n];
 }
 
