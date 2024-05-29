@@ -19,7 +19,7 @@ all:	$(NAME)
 $(NAME): $(OBJ_DIR) $(OBJS) $(HEADER)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-objs/%.o:	%.cpp
+objs/%.o:	%.cpp	$(HEADER)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ_DIR):

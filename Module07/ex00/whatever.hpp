@@ -4,7 +4,7 @@
 #include <iostream>
 
 template<typename T>
-void	swap(T val1, T val2)
+void	swap(T& val1, T& val2)
 {
 	T	tmp;
 	tmp = val1;

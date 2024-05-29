@@ -16,6 +16,8 @@
 
 int	main()
 {
+	try
+	{
 // case 1
 	// std::array<int, 30>		intArrayPtrArray;
 	// const std::array<int, 30>	constArrayint;
@@ -52,5 +54,9 @@ int	main()
 
 // case 5
 	// atexit(asd);
-
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << '\n';
+	}
 }

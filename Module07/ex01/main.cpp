@@ -24,9 +24,11 @@ static void    funcStatic(int a)
 
 int main()
 {
+    A   a1;
     const double a[6] = {1.1, 2.2, 3.3, 4.4, 5.5, 6.6};
     iter(a, 6, funcStatic);
     iter(a, 6, funcTemplate<double>);
     iter(a, 6, A::funcA);
+    iter(a, 6, a1.funcA);
     return 0;
 }

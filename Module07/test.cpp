@@ -24,7 +24,7 @@ struct Fibonacci<1>
 
 int main()
 {
-	std::cout << Fibonacci<1024>::value << std::endl;
+	std::cout << Fibonacci<46>::value << std::endl;
 	return 0;
 }
 

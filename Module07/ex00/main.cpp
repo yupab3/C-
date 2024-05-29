@@ -19,7 +19,7 @@ int	main(void)
 	std::cout << "bf swap : constintA = " << constintA << ", constintB = " << constintB << '\n';
 	const int	constminInt = min(constintA, constintB);
 	const int	constmaxInt = max(constintA, constintB);
-	swap(constintA, constintB);
+	// swap(constintA, constintB);
 	std::cout << "af swap : constintA = " << constintA << ", constintB = " << constintB << ", min = " << constminInt << ", max = " << constmaxInt << '\n';
 	// constintB = 20;
 	std::cout << "same case : min = " << min(constintA, constintB) << ", max = " << max(constintA, constintB) << '\n';
@@ -53,12 +53,10 @@ int	main(void)
 	std::string	stringA = "dongyeuk";
 	std::string	stringB = "sungyoon";
 	std::cout << "bf swap : stringA = " << stringA << ", stringB = " << stringB << '\n';
-	// double	minDouble = min(stringA, stringB);
-	// double	maxDouble = max(stringA, stringB);
+	// std::string	stringMin = min(stringA, stringB);
+	// std::string	stringMax = max(stringA, stringB);
 	swap(stringA, stringB);
 	// stringA.swap(stringB);
 	std::cout << "af swap : stringA = " << stringA << ", stringB = " << stringB << '\n';
-	// std::cout << "af swap : stringA = " << stringA << ", stringB = " << stringB << ", min = " << minDouble << ", max = " << maxDouble << '\n';
-	// stringB = "sungyoon";
-	// std::cout << "same case : min = " << min(stringA, stringB) << ", max = " << max(stringA, stringB) << '\n';
+	return 0;
 }
