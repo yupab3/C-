@@ -77,4 +77,5 @@ int	main(void)
 	// if (stackIntIt != stackInt.end()) { std::cout << idx << " : exist\n"; }
 	// else { std::cout << idx << " : does not exist\n"; }
 	// atexit(asd);
+	return 0;
 }
