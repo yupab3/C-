@@ -25,7 +25,7 @@ void	Span::addNumber(int input){
 int		Span::shortestSpan(){
 	if (std::distance(setInt.begin(), setInt.end()) < 2)
 		throw	std::out_of_range("\n  --Not enough data--\n");
-	int	res = INT32_MAX;
+	int	res = INT_MAX;
 	std::set<int>::iterator tmp = setInt.begin();
 	int	bfValue = *tmp;
 	tmp++;

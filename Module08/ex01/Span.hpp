@@ -2,6 +2,8 @@
 # define SPAN_HPP
 
 #include <set>
+#include <stdexcept>
+#include <climits>
 
 class Span
 {

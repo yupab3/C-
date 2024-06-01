@@ -5,6 +5,10 @@
 #include <set>
 #include <stack>
 
+// void	asd(void)
+// {
+// 	system("leaks main");
+// }
 
 int	main(void)
 {
@@ -72,4 +76,5 @@ int	main(void)
 	// stackIntIt = easyfind(stackInt, idx);
 	// if (stackIntIt != stackInt.end()) { std::cout << idx << " : exist\n"; }
 	// else { std::cout << idx << " : does not exist\n"; }
+	// atexit(asd);
 }

@@ -27,6 +27,11 @@
 // 	this->aaa::A::operator=(static_cast<const A&>(copy));
 // }
 
+// void	asd(void)
+// {
+// 	system("leaks main");
+// }
+
 int main()
 {
 	MutantStack<int> mstack;
@@ -95,6 +100,6 @@ int main()
 	}
 	
 	// std::stack<int> s(reallyst);
-	system("leaks main");
+	// atexit(asd);
 	return 0;
 }

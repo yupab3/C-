@@ -2,6 +2,11 @@
 #include "Span.hpp"
 #include <deque>
 
+// void	asd(void)
+// {
+// 	system("leaks main");
+// }
+
 int main()
 {
 	try
@@ -100,5 +105,6 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
+	// atexit(asd);
 	return 0;
 }
