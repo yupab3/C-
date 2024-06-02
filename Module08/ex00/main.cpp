@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 #include "easyfind.hpp"
 #include <vector>
 #include <set>

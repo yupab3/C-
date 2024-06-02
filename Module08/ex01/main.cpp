@@ -14,8 +14,8 @@ int main()
 	std::cout << "\n     --case 1--\n";
 	Span sp = Span(5);
 
-	sp.addNumber(6);
-	sp.addNumber(3);
+	sp.addNumber(2147483647);
+	sp.addNumber(-2147483648);
 	sp.addNumber(17);
 	sp.addNumber(9);
 	sp.addNumber(11);

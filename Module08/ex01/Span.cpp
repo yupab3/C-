@@ -1,14 +1,13 @@
 #include "Span.hpp"
 
-Span::Span(unsigned int N){
-	maxSize = N;
-}
+Span::Span(unsigned int N):maxSize(N), shortSpan(UINT_MAX){}
 
 Span::Span(const Span& copy){
 	*this = copy;
 }
 
 Span&	Span::operator=(const Span& copy){
+	shortSpan = copy.shortSpan;
 	maxSize = copy.maxSize;
 	setInt = copy.setInt;
 	return *this;
@@ -17,29 +16,36 @@ Span&	Span::operator=(const Span& copy){
 Span::~Span(){}
 
 void	Span::addNumber(int input){
-	if (std::distance(setInt.begin(), setInt.end()) >= maxSize)
+	if (setInt.size() >= maxSize)
 		throw	std::out_of_range("\n  --Span overflow--\n");
-	setInt.insert(input);
-}
-
-int		Span::shortestSpan(){
-	if (std::distance(setInt.begin(), setInt.end()) < 2)
-		throw	std::out_of_range("\n  --Not enough data--\n");
-	int	res = INT_MAX;
-	std::set<int>::iterator tmp = setInt.begin();
-	int	bfValue = *tmp;
-	tmp++;
-	for (; tmp != setInt.end(); tmp++)
+	std::set<int>::iterator	tmpIt = setInt.insert(input).first;
+	int tmpInteger;
+	unsigned int compRes;
+	if (tmpIt != --(setInt.end()))
 	{
-		if (*tmp - bfValue < res)
-			res = *tmp - bfValue;
-		bfValue = *tmp;
+		tmpInteger = *(++tmpIt);
+		compRes = tmpInteger - input;
+		if (compRes < shortSpan)
+			shortSpan = compRes;
+		--tmpIt;
 	}
-	return res;
+	if (tmpIt != setInt.begin())
+	{
+		tmpInteger = *(--tmpIt);
+		compRes = input - tmpInteger;
+		if (compRes < shortSpan)
+			shortSpan = compRes;
+	}
 }
 
-int		Span::longestSpan(){
-	if (std::distance(setInt.begin(), setInt.end()) < 2)
+unsigned int	Span::shortestSpan(){
+	if (setInt.size() < 2)
+		throw	std::out_of_range("\n  --Not enough data--\n");
+	return shortSpan;
+}
+
+unsigned int	Span::longestSpan(){
+	if (setInt.size() < 2)
 		throw	std::out_of_range("\n  --Not enough data--\n");
 	return *(--(setInt.end())) - *(setInt.begin());
 }

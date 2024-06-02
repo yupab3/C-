@@ -4,6 +4,7 @@
 #include <set>
 #include <stdexcept>
 #include <climits>
+#include <iostream>
 
 class Span
 {
@@ -13,24 +14,21 @@ public:
 	Span&	operator=(const Span& copy);
 	~Span();
 	void	addNumber(int input);
-	int		shortestSpan();
-	int		longestSpan();
+	unsigned int	shortestSpan();
+	unsigned int	longestSpan();
 
 	template<typename T>
 	void	fill(T beginIt, T endIt)
 	{
-		if (std::distance(setInt.begin(), setInt.end()) + std::distance(beginIt, endIt) > maxSize)
-			throw	std::out_of_range("\n  --Span overflow--\n");
 		for	(T tmpIt = beginIt; tmpIt != endIt; tmpIt++)
-		{
-			setInt.insert(*tmpIt);
-		}
+			addNumber(*tmpIt);
 	}
 
 private:
 	Span();
 	std::set<int>	setInt;
 	unsigned int	maxSize;
+	unsigned int	shortSpan;
 };
 
 #endif
