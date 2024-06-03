@@ -1,4 +1,5 @@
 #include "Span.hpp"
+#include <algorithm>
 
 Span::Span(unsigned int N):maxSize(N), shortSpan(UINT_MAX){}
 
@@ -25,16 +26,14 @@ void	Span::addNumber(int input){
 	{
 		tmpInteger = *(++tmpIt);
 		compRes = tmpInteger - input;
-		if (compRes < shortSpan)
-			shortSpan = compRes;
+		shortSpan = std::min(compRes, shortSpan);
 		--tmpIt;
 	}
 	if (tmpIt != setInt.begin())
 	{
 		tmpInteger = *(--tmpIt);
 		compRes = input - tmpInteger;
-		if (compRes < shortSpan)
-			shortSpan = compRes;
+		shortSpan = std::max(shortSpan, compRes);
 	}
 }
 
