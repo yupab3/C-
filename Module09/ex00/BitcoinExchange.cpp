@@ -197,6 +197,17 @@ bool	BitcoinExchange::checkInputValue(std::string &value)
 {
 	size_t	len = value.size();
 	size_t	exp = 0;
+
+	if (value[0] == '\0')
+	{
+		std::cerr << "Error - empty field => ";
+		return (false);
+	}
+	if (value[0] == '.')
+	{
+		std::cerr << "Error - wrong char => ";
+		return (false);
+	}
 	_parsed_value = 0;
 	for (size_t i = 0; i < len; i++)
 	{
@@ -227,11 +238,16 @@ bool	BitcoinExchange::checkInputValue(std::string &value)
 			std::cerr << "Error - not a positive number => ";
 			return (false);
 		}
-		if (1000 < _parsed_value || (i > 3 && exp == 0))
+		if (1000 < _parsed_value || (i > 3 && exp == 0) || (i > 3 && 1000 <= _parsed_value && value[i] != 48 && value[i] != '.'))
 		{
 			std::cerr << "Error - too large a number => ";
 			return (false);
 		}
+	}
+	if (value[len - 1] == '.')
+	{
+		std::cerr << "Error - wrong char => ";
+		return (false);
 	}
 	return (true);
 }
@@ -239,10 +255,13 @@ bool	BitcoinExchange::checkInputValue(std::string &value)
 bool	BitcoinExchange::isYoonSeokYear(int year)
 {
     // 윤년 확인 함수
-    if (year % 4 == 0 && year % 100 == 0 && year % 400 == 0)
+	if (year % 400 == 0)
 		return (true);
-    else
-        return (false); // 4로 나누어 떨어지지 않는 해는 윤년 아님
+	if (year % 100 == 0)
+		return (false);
+	if (year % 4 == 0)
+		return (true);
+	return (false);
 }
 
 void	BitcoinExchange::setDate(int i, int &year, int &month, int &day, std::string &date)
