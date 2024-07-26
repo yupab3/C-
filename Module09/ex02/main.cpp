@@ -30,20 +30,6 @@ int	main(int argc, char **argv)
 		std::cout << "Time to process a range of " << tmp.getSize() << " elements with std::vector : " << (v_end.tv_sec - v_start.tv_sec) * 1000000 + v_end.tv_usec - v_start.tv_usec << " us\n";
 		std::cout << "Time to process a range of " << tmp.getSize() << " elements with std::deque  : " << (d_end.tv_sec - d_start.tv_sec) * 1000000 + d_end.tv_usec - d_start.tv_usec << " us\n";
 		std::cout << "Total compare count: " << tmp.getChain() << '\n';
-		// for (auto a = tmp._v_data.begin(); a != tmp._v_data.end();)
-		// {
-		// 	if (a == --tmp._v_data.end())
-		// 	{
-		// 		break ;
-		// 	}
-		// 	auto	next = ++a;
-		// 	--a;
-		// 	if (a->first > next->first)
-		// 	{
-		// 		std::cout << "mtfker: " << a->first << ", " << next->first << '\n';
-		// 	}
-		// 	++a;
-		// }
 	}
 	catch (std::exception &e)
 	{

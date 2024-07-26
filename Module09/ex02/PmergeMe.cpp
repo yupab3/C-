@@ -30,19 +30,11 @@ void	PmergeMe::vectorFordJohnson()
 	for (std::vector<ii>::iterator it = _v_data.begin(); it != _v_data.end();)
 		splitVectorData(sub_chain, it);
 	index = _v_data;
-	// std::cout << "****af split****\n";
-	// printVectorData(sub_chain);
 	if (_v_data.size() > 1)
 		vectorFordJohnson();
-	// std::cout << "****af rec****\n";
-	// printVectorData(sub_chain);
 	callVectorIndex(index);
-	// std::cout << "****af callidx****\n";
-	// printVectorData(sub_chain);
 	sub_chain = setVectorSubchain(sub_chain);
 	_v_data.insert(_v_data.begin(), sub_chain[0]);
-	// std::cout << "****af setsubchain****\n";
-	// printVectorData(sub_chain);
 	size_t	bf = 1;
 	int 	cycle = 3;
 	while (sub_chain.size() > bf)
@@ -52,15 +44,11 @@ void	PmergeMe::vectorFordJohnson()
 		if (sub_idx > sub_chain.size() - 1)
 			sub_idx = sub_chain.size() - 1;
 		size_t	start_sub_idx = sub_idx;
-		// std::cout << "****jacob: " << jacob << "****\n****sub_idx" << sub_idx << "****\n";
-		// printVectorData(sub_chain);
 		while (sub_idx >= bf)
 		{
 			size_t	max_idx = (pow(2, cycle - 1) - (jacob - start_sub_idx));
-			// std::cout << "start max_idx: " << max_idx << '\n';
 			size_t	min_idx = 0;
 			size_t	comp_idx = comp_idx = (max_idx + min_idx) / 2;;
-			// std::cout << "comp_idx: " << comp_idx << "min_idx: " << min_idx << "max_idx: " << max_idx << '\n';
 			while (max_idx != min_idx)
 			{
 				if (_v_data[comp_idx].first == sub_chain[sub_idx].first)
@@ -70,7 +58,6 @@ void	PmergeMe::vectorFordJohnson()
 				else if (_v_data[comp_idx].first < sub_chain[sub_idx].first)
 					min_idx = comp_idx + 1;
 				comp_idx = (max_idx + min_idx) / 2;
-				// std::cout << "comp_idx: " << comp_idx << "min_idx: " << min_idx << "max_idx: " << max_idx << '\n';
 				chain++;
 			}
 			std::vector<ii>::iterator it = _v_data.begin() + comp_idx;
@@ -80,8 +67,6 @@ void	PmergeMe::vectorFordJohnson()
 		bf = jacob;
 		cycle++;
 	}
-	// std::cout << "****af merge****\n";
-	// printVectorData(sub_chain);
 }
 
 void	PmergeMe::dequeFordJohnson()
@@ -94,19 +79,11 @@ void	PmergeMe::dequeFordJohnson()
 	for (std::deque<ii>::iterator it = _d_data.begin(); it != _d_data.end();)
 		splitDequeData(sub_chain, it);
 	index = _d_data;
-	// std::cout << "****af split****\n";
-	// printDequeData(sub_chain);
 	if (_d_data.size() > 1)
 		dequeFordJohnson();
-	// std::cout << "****af rec****\n";
-	// printDequeData(sub_chain);
 	callDequeIndex(index);
-	// std::cout << "****af callidx****\n";
-	// printDequeData(sub_chain);
 	sub_chain = setDequeSubchain(sub_chain);
 	_d_data.insert(_d_data.begin(), sub_chain[0]);
-	// std::cout << "****af setsubchain****\n";
-	// printDequeData(sub_chain);
 	size_t	bf = 1;
 	int 	cycle = 3;
 	while (sub_chain.size() > bf)
@@ -116,15 +93,11 @@ void	PmergeMe::dequeFordJohnson()
 		if (sub_idx > sub_chain.size() - 1)
 			sub_idx = sub_chain.size() - 1;
 		size_t	start_sub_idx = sub_idx;
-		// std::cout << "****jacob: " << jacob << "****\n****sub_idx" << sub_idx << "****\n";
-		// printDequeData(sub_chain);
 		while (sub_idx >= bf)
 		{
 			size_t	max_idx = (pow(2, cycle - 1) - (jacob - start_sub_idx));
-			// std::cout << "start max_idx: " << max_idx << '\n';
 			size_t	min_idx = 0;
 			size_t	comp_idx = comp_idx = (max_idx + min_idx) / 2;;
-			// std::cout << "comp_idx: " << comp_idx << "min_idx: " << min_idx << "max_idx: " << max_idx << '\n';
 			while (max_idx != min_idx)
 			{
 				if (_d_data[comp_idx].first == sub_chain[sub_idx].first)
@@ -134,8 +107,6 @@ void	PmergeMe::dequeFordJohnson()
 				else if (_d_data[comp_idx].first < sub_chain[sub_idx].first)
 					min_idx = comp_idx + 1;
 				comp_idx = (max_idx + min_idx) / 2;
-				// std::cout << "comp_idx: " << comp_idx << "min_idx: " << min_idx << "max_idx: " << max_idx << '\n';
-				// chain++;
 			}
 			std::deque<ii>::iterator it = _d_data.begin() + comp_idx;
 			_d_data.insert(it, sub_chain[sub_idx]);
@@ -144,8 +115,6 @@ void	PmergeMe::dequeFordJohnson()
 		bf = jacob;
 		cycle++;
 	}
-	// std::cout << "****af merge****\n";
-	// printDequeData(sub_chain);
 }
 
 void	PmergeMe::readNum(const std::string &str)
@@ -218,13 +187,6 @@ std::vector<ii>	PmergeMe::setVectorSubchain(std::vector<ii> &sub_chain)
 {
 	std::vector<ii>	new_sub_chain;
 	std::vector<ii>::iterator	main_it = _v_data.begin();
-	// for (std::vector<ii>::iterator sub_it = sub_chain.begin(); sub_it != sub_chain.end();)
-	// {
-	// 	std::cout << sub_it->first;
-	// 	if (++sub_it != sub_chain.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << '\n';
 	while (main_it != _v_data.end())
 	{
 		for (std::vector<ii>::iterator	sub_it = sub_chain.begin(); sub_it != sub_chain.end(); ++sub_it)
@@ -242,45 +204,8 @@ std::vector<ii>	PmergeMe::setVectorSubchain(std::vector<ii> &sub_chain)
 	if (tmp_it != sub_chain.end())
 	{
 		new_sub_chain.push_back(*tmp_it);
-		// std::cout << tmp_it->first << ", " << tmp_it->second << '\n';
 		sub_chain.erase(tmp_it);
 	}
-	// std::cout << "---setSubchain---\n---main---\n";
-	// for (std::vector<ii>::iterator it = _v_data.begin(); it != _v_data.end();)
-	// {
-	// 	std::cout << it->first;
-	// 	if (++it != _v_data.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << '\n';
-	// for (std::vector<ii>::iterator it = _v_data.begin(); it != _v_data.end();)
-	// {
-	// 	std::cout << it->second;
-	// 	if (++it != _v_data.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << "\n-----------------\n\n---sub---\n";
-	// for (std::vector<ii>::iterator it = new_sub_chain.begin(); it != new_sub_chain.end();)
-	// {
-	// 	std::cout << it->first;
-	// 	if (++it != new_sub_chain.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << '\n';
-	// for (std::vector<ii>::iterator it = new_sub_chain.begin(); it != new_sub_chain.end();)
-	// {
-	// 	std::cout << it->second;
-	// 	if (++it != new_sub_chain.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << "\n-----------------\n";
-	// for (std::vector<ii>::iterator sub_it = new_sub_chain.begin(); sub_it != new_sub_chain.end();)
-	// {
-	// 	std::cout << sub_it->first;
-	// 	if (++sub_it != new_sub_chain.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << '\n';
 	return (new_sub_chain);
 }
 
@@ -288,13 +213,6 @@ std::deque<ii>	PmergeMe::setDequeSubchain(std::deque<ii> &sub_chain)
 {
 	std::deque<ii>	new_sub_chain;
 	std::deque<ii>::iterator	main_it = _d_data.begin();
-	// for (std::deque<ii>::iterator sub_it = sub_chain.begin(); sub_it != sub_chain.end();)
-	// {
-	// 	std::cout << sub_it->first;
-	// 	if (++sub_it != sub_chain.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << '\n';
 	while (main_it != _d_data.end())
 	{
 		for (std::deque<ii>::iterator	sub_it = sub_chain.begin(); sub_it != sub_chain.end(); ++sub_it)
@@ -312,57 +230,13 @@ std::deque<ii>	PmergeMe::setDequeSubchain(std::deque<ii> &sub_chain)
 	if (tmp_it != sub_chain.end())
 	{
 		new_sub_chain.push_back(*tmp_it);
-		// std::cout << tmp_it->first << ", " << tmp_it->second << '\n';
 		sub_chain.erase(tmp_it);
 	}
-	// std::cout << "---setSubchain---\n---main---\n";
-	// for (std::deque<ii>::iterator it = _d_data.begin(); it != _d_data.end();)
-	// {
-	// 	std::cout << it->first;
-	// 	if (++it != _d_data.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << '\n';
-	// for (std::deque<ii>::iterator it = _d_data.begin(); it != _d_data.end();)
-	// {
-	// 	std::cout << it->second;
-	// 	if (++it != _d_data.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << "\n-----------------\n\n---sub---\n";
-	// for (std::deque<ii>::iterator it = new_sub_chain.begin(); it != new_sub_chain.end();)
-	// {
-	// 	std::cout << it->first;
-	// 	if (++it != new_sub_chain.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << '\n';
-	// for (std::deque<ii>::iterator it = new_sub_chain.begin(); it != new_sub_chain.end();)
-	// {
-	// 	std::cout << it->second;
-	// 	if (++it != new_sub_chain.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << "\n-----------------\n";
-	// for (std::deque<ii>::iterator sub_it = new_sub_chain.begin(); sub_it != new_sub_chain.end();)
-	// {
-	// 	std::cout << sub_it->first;
-	// 	if (++sub_it != new_sub_chain.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << '\n';
 	return (new_sub_chain);
 }
 
-// void	PmergeMe::printVectorData()
 void	PmergeMe::printVectorData()
 {
-	// for (std::vector<ii>::iterator it = _v_data.begin(); it != _v_data.end();)
-	// {
-	// 	std::cout << it->first;
-	// 	if (++it != _v_data.end())
-	// 		std::cout << " ";
-	// }
 	for (std::vector<ii>::iterator it = _v_data.begin(); it != _v_data.end();)
 	{
 		std::cout << it->first;
@@ -370,39 +244,10 @@ void	PmergeMe::printVectorData()
 			std::cout << " ";
 	}
 	std::cout << '\n';
-	// for (std::vector<ii>::iterator it = _v_data.begin(); it != _v_data.end();)
-	// {
-	// 	std::cout << it->second;
-	// 	if (++it != _v_data.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << "\n-----------------\n\n---sub---\n";
-	// for (std::vector<ii>::iterator it = sub_chain.begin(); it != sub_chain.end();)
-	// {
-	// 	std::cout << it->first;
-	// 	if (++it != sub_chain.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << '\n';
-	// for (std::vector<ii>::iterator it = sub_chain.begin(); it != sub_chain.end();)
-	// {
-	// 	std::cout << it->second;
-	// 	if (++it != sub_chain.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << "\n-----------------\n";
-	// std::cout << '\n';
 }
 
-// void	PmergeMe::printDequeData()
 void	PmergeMe::printDequeData()
 {
-	// for (std::deque<ii>::iterator it = _d_data.begin(); it != _d_data.end();)
-	// {
-	// 	std::cout << it->first;
-	// 	if (++it != _d_data.end())
-	// 		std::cout << " ";
-	// }
 	for (std::deque<ii>::iterator it = _d_data.begin(); it != _d_data.end();)
 	{
 		std::cout << it->first;
@@ -410,28 +255,6 @@ void	PmergeMe::printDequeData()
 			std::cout << " ";
 	}
 	std::cout << '\n';
-	// for (std::deque<ii>::iterator it = _d_data.begin(); it != _d_data.end();)
-	// {
-	// 	std::cout << it->second;
-	// 	if (++it != _d_data.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << "\n-----------------\n\n---sub---\n";
-	// for (std::deque<ii>::iterator it = sub_chain.begin(); it != sub_chain.end();)
-	// {
-	// 	std::cout << it->first;
-	// 	if (++it != sub_chain.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << '\n';
-	// for (std::deque<ii>::iterator it = sub_chain.begin(); it != sub_chain.end();)
-	// {
-	// 	std::cout << it->second;
-	// 	if (++it != sub_chain.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << "\n-----------------\n";
-	// std::cout << '\n';
 }
 
 void	PmergeMe::setVectorIndex()
@@ -456,21 +279,6 @@ void	PmergeMe::setDequeIndex()
 
 void	PmergeMe::callVectorIndex(std::vector<ii> &index)
 {
-	// std::cout << "\n-----------------\n\n---idx---\n";
-	// for (std::vector<ii>::iterator it = index.begin(); it != index.end();)
-	// {
-	// 	std::cout << it->first;
-	// 	if (++it != index.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << '\n';
-	// for (std::vector<ii>::iterator it = index.begin(); it != index.end();)
-	// {
-	// 	std::cout << it->second;
-	// 	if (++it != index.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << "\n-----------------\n";
 	std::vector<ii>::iterator	main_it = _v_data.begin();
 	while (main_it != _v_data.end())
 	{
@@ -489,21 +297,6 @@ void	PmergeMe::callVectorIndex(std::vector<ii> &index)
 
 void	PmergeMe::callDequeIndex(std::deque<ii> &index)
 {
-	// std::cout << "\n-----------------\n\n---idx---\n";
-	// for (std::deque<ii>::iterator it = index.begin(); it != index.end();)
-	// {
-	// 	std::cout << it->first;
-	// 	if (++it != index.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << '\n';
-	// for (std::deque<ii>::iterator it = index.begin(); it != index.end();)
-	// {
-	// 	std::cout << it->second;
-	// 	if (++it != index.end())
-	// 		std::cout << " ";
-	// }
-	// std::cout << "\n-----------------\n";
 	std::deque<ii>::iterator	main_it = _d_data.begin();
 	while (main_it != _d_data.end())
 	{
