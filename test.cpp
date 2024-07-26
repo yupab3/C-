@@ -60,8 +60,55 @@
 //     std::cout << "Socketpair time: " << duration.count() << " seconds" << std::endl;
 // }
 
+class   test_error1
+{
+public:
+    test_error1(): tester("test") {
+        std::cout << "callllllll\n";
+    }
+    test_error1(const char*  str){
+        tester = str;
+    }
+    virtual ~test_error1()throw(){};
+    virtual const char* what() const throw()
+    {
+        return  tester.c_str();
+    }
+
+private:
+    std::string tester;
+};
+
+class   test_error2: private test_error1
+{
+public:
+    test_error2(): tester("test") {}
+    test_error2(const char*  str){
+        tester = str;
+    }
+    ~test_error2()throw(){};
+    const char* what() const throw()
+    {
+        return  tester.c_str();
+    }
+
+private:
+    std::string tester;
+};
+
 int main() {
     // benchmark_pipe();
     // benchmark_socketpair();
+    test_error2* tes2 = new test_error2;
+    test_error1 &tes1 = tes2;
+    // try
+    // {
+    //     throw test_error("test1");
+    // }
+    catch(const std::exception &e)
+    // {
+    //     std::cout << e.what() << '\n';
+    // }
+    
     return 0;
 }

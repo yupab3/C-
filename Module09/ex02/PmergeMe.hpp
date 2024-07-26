@@ -4,8 +4,9 @@
 # include <iostream>
 # include <sstream>
 # include <cstdlib>
-# include <list>
+# include <deque>
 # include <vector>
+# include <sys/time.h>
 
 # define ii	std::pair<int, int>
 
@@ -18,17 +19,28 @@ public:
 	~PmergeMe();
 
 	void	readNum(const std::string &str);
-
+	// void	printData();
+	void	printVectorData();
+	void	printDequeData();
 	void	vectorFordJohnson();
+	void	dequeFordJohnson();
+	int		getChain();
+	int		getSize();
 
 private:
 	std::vector<ii>	_v_data;
-	std::list<ii>	_l_data;
-	int				_depth;
+	std::deque<ii>	_d_data;
+	int				chain;
 
-	bool	checkNum(const std::string &str, int pos);
+	void	setVectorIndex();
+	void	setDequeIndex();
+	void	callVectorIndex(std::vector<ii> &index);
+	void	callDequeIndex(std::deque<ii> &index);
 	void	jumpSpace(const std::string &str, int &pos);
-	void	splitData(std::vector<ii> &sub_chain, std::vector<ii>::iterator &it, int &idx);
+	std::vector<ii>	setVectorSubchain(std::vector<ii> &sub_chain);
+	std::deque<ii>	setDequeSubchain(std::deque<ii> &sub_chain);
+	void	splitVectorData(std::vector<ii> &sub_chain, std::vector<ii>::iterator &it);
+	void	splitDequeData(std::deque<ii> &sub_chain, std::deque<ii>::iterator &it);
 };
 
 #endif

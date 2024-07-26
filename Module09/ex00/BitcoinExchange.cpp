@@ -57,7 +57,7 @@ void	BitcoinExchange::printAmount(const char *file)
 		if (_market_data.upper_bound(date) == _market_data.begin())
 			std::cerr << "Error - no data => \"" << cur_line << "\"\n";
 		else
-			std::cout << date << " => " << value << " = " << _parsed_value * getMarketValue(date) << '\n';
+			 << date << " => " << value << " = " << _parsed_value * getMarketValue(date) << '\n';
 	}
 }
 
