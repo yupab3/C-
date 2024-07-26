@@ -1,6 +1,6 @@
 CXX=		c++
 CXXFLAGS=	-Wall -Wextra -Werror -std=c++98
-NAME=		main
+NAME=		PmergeMe
 
 FILES=		main PmergeMe
 SRCS=		$(addsuffix .cpp, $(FILES))

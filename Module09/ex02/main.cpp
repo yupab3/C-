@@ -6,6 +6,8 @@ int	main(int argc, char **argv)
 	PmergeMe		tmp;
 	struct timeval	v_start, v_end, d_start, d_end;
 
+	if (argc == 1)
+		return (1);
 	try
 	{
 		while (idx < argc)

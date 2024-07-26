@@ -77,9 +77,8 @@ void	RPN::calculator(const char op)
 	else if (op == '*')
 		stk.push(lhs * rhs);
 	else if (rhs == 0)
-		throw std::logic_error("Error - div by zero [calculator]\n");
+		throw std::logic_error("Error - div by zero [calculator]");
 	else
 		stk.push(lhs / rhs);
-	std::cout << stk.top() << '\n';
 	pos++;
 }

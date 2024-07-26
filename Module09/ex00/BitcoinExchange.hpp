@@ -28,7 +28,7 @@ private:
 	void	checkMarketValue(std::string &value);
 	bool	checkInputDate(std::string &date);
 	bool	checkInputValue(std::string &value);
-	bool	isYoonSeokYear(int year);
+	bool	isLeapYear(int year);
 	void	setDate(int i, int &year, int &month, int &day, std::string &date);
 	};
 

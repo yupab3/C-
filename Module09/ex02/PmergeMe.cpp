@@ -32,6 +32,8 @@ void	PmergeMe::vectorFordJohnson()
 	index = _v_data;
 	if (_v_data.size() > 1)
 		vectorFordJohnson();
+	else
+		std::cout << chain << '\n';
 	callVectorIndex(index);
 	sub_chain = setVectorSubchain(sub_chain);
 	_v_data.insert(_v_data.begin(), sub_chain[0]);
@@ -153,11 +155,13 @@ void	PmergeMe::splitVectorData(std::vector<ii> &sub_chain, std::vector<ii>::iter
 		sub_chain.push_back(*it);
 		it = _v_data.erase(it);
 		++it;
+		chain++;
 	}
 	else if (next->first < it->first)
 	{
 		sub_chain.push_back(*next);
 		it = _v_data.erase(next);
+		chain++;
 	}
 }
 

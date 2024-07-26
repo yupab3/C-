@@ -57,7 +57,7 @@ void	BitcoinExchange::printAmount(const char *file)
 		if (_market_data.upper_bound(date) == _market_data.begin())
 			std::cerr << "Error - no data => \"" << cur_line << "\"\n";
 		else
-			 << date << " => " << value << " = " << _parsed_value * getMarketValue(date) << '\n';
+			std::cout << date << " => " << value << " = " << _parsed_value * getMarketValue(date) << '\n';
 	}
 }
 
@@ -115,7 +115,7 @@ void	BitcoinExchange::checkMarketDate(std::string &date)
 	if (month < 1 || month > 12)
 		throw std::logic_error("Error - wrong month => \"" + date + "\" [func. checkMarketDate]\n");
 	int daysInMonth[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-	if (isYoonSeokYear(year))
+	if (isLeapYear(year))
 		daysInMonth[1] = 29;
 	if (day < 1 || day > daysInMonth[month - 1])
 		throw std::logic_error("Error - wrong day => \"" + date + "\" [func. checkMarketDate]\n");
@@ -179,13 +179,13 @@ bool	BitcoinExchange::checkInputDate(std::string &date)
 		return (false);
 	}
 	int daysInMonth[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-	if (isYoonSeokYear(year))
+	if (isLeapYear(year))
 		daysInMonth[1] = 29;
 	if (day < 1 || day > daysInMonth[month - 1])
 	{
 		std::cerr << "Error - wrong day ";
-		if (isYoonSeokYear(year))
-			std::cerr << "Yoon.. => ";
+		if (isLeapYear(year))
+			std::cerr << "Leap.. => ";
 		else
 			std::cerr << "=> ";
 		return (false);
@@ -252,7 +252,7 @@ bool	BitcoinExchange::checkInputValue(std::string &value)
 	return (true);
 }
 
-bool	BitcoinExchange::isYoonSeokYear(int year)
+bool	BitcoinExchange::isLeapYear(int year)
 {
     // 윤년 확인 함수
 	if (year % 400 == 0)

@@ -1,6 +1,6 @@
 CXX=		c++
 CXXFLAGS=	-Wall -Wextra -Werror -std=c++98
-NAME=		main
+NAME=		RPN
 
 FILES=		main RPN
 SRCS=		$(addsuffix .cpp, $(FILES))
