@@ -10,7 +10,9 @@ int	main(int argc, char **argv)
 	try
 	{
 		BitcoinExchange	bc;
+		std::cout << "-----data-----\n";
 		bc.parseMarket("data.csv");
+		std::cout << "----market----\n";
 		bc.printAmount(argv[1]);
 	}
 	catch(std::exception &e)
